@@ -2,7 +2,7 @@ name: Rolling Release
 
 on:
   push:
-    branches: [main]
+    branches: [profiles-legacy]
     paths:
       - "frontend/**"
 
@@ -38,25 +38,17 @@ jobs:
           zip -r rolling-release.zip rolling-release
       - name: Generate Changelog
         run: |
-          set +e
-          LAST_COMMIT=$(curl -L https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/download/rolling-release/version.txt)
-          echo -e "## Change log\n\n> Update time: $(TZ='Asia/Shanghai' date "+%Y-%m-%d %H:%M:%S")\n" > changelog.md
-          git log $LAST_COMMIT..HEAD --pretty=format:"* %s" >> changelog.md
-          if [ $? -ne 0 ]; then
-            echo "No changes found since last commit." >> changelog.md
-          fi
-          set -e
+          echo -e "## The legacy version is no longer supported." > changelog.md
       - name: Create Release and Upload Assets
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./{frontend/{rolling-release.zip,rolling-release/version.txt},changelog.md}
           file_glob: true
-          tag: rolling-release
-          release_name: rolling-release
+          tag: rolling-release-legacy
+          release_name: rolling-release-legacy
           overwrite: true
           draft: false
           prerelease: true
           body: |
-            Rolling release built by GitHub Actions.
-            To use this version, please install the "Rolling Release Assistant" plugin and enable "Enable Rolling Release" within the app.
+            The legacy version is no longer supported.
