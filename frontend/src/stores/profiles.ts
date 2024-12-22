@@ -5,6 +5,7 @@ import { parse, stringify } from 'yaml'
 import { debounce, ignoredError } from '@/utils'
 import { Readfile, Writefile } from '@/bridge'
 import { ProfilesFilePath, ProxyGroup, FinalDnsType } from '@/constant'
+import { useAlert } from '@/hooks'
 
 export type ProfileType = {
   id: string
@@ -116,6 +117,22 @@ export const useProfilesStore = defineStore('profiles', () => {
   const setupProfiles = async () => {
     const data = await ignoredError(Readfile, ProfilesFilePath)
     data && (profiles.value = parse(data))
+
+    const profilesCount = profiles.value.length
+    const filteredProfiles = profiles.value.filter((profile) => (profile as any).route)
+
+    profiles.value = profiles.value.filter((profile) => {
+      return !(profile as any).route
+    })
+
+    if (profilesCount !== profiles.value.length) {
+      const { alert } = useAlert()
+      Writefile('data/.cache/profiles-backup.yaml', stringify(filteredProfiles))
+      alert(
+        'Tip',
+        'The incompatible profiles has been saved to the file: data/.cache/profiles-backup.yaml.'
+      )
+    }
 
     // compatibility code
     profiles.value.forEach((profile) => {
