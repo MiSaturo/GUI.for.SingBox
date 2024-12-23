@@ -203,17 +203,17 @@ export const RulesConfigDefaults = (ids: string[]): ProfileType['rulesConfig'] =
     'download-detour': '',
     invert: false
   },
-  {
-    id: sampleID(),
-    type: 'rule_set_url',
-    payload:
-      'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs',
-    proxy: ids[3],
-    'ruleset-name': 'CATEGORY-ADS',
-    'ruleset-format': 'binary',
-    'download-detour': ids[2],
-    invert: false
-  },
+  // {
+  //   id: sampleID(),
+  //   type: 'rule_set_url',
+  //   payload:
+  //     'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs',
+  //   proxy: ids[3],
+  //   'ruleset-name': 'CATEGORY-ADS',
+  //   'ruleset-format': 'binary',
+  //   'download-detour': ids[2],
+  //   invert: false
+  // },
   {
     id: sampleID(),
     type: 'ip_is_private',
@@ -224,37 +224,37 @@ export const RulesConfigDefaults = (ids: string[]): ProfileType['rulesConfig'] =
     'download-detour': '',
     invert: false
   },
-  {
-    id: sampleID(),
-    type: 'rule_set_url',
-    payload: 'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs',
-    proxy: ids[2],
-    'ruleset-name': 'GEOIP-CN',
-    'ruleset-format': 'binary',
-    'download-detour': ids[2],
-    invert: false
-  },
-  {
-    id: sampleID(),
-    type: 'rule_set_url',
-    payload: 'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs',
-    proxy: ids[2],
-    'ruleset-name': 'GEOSITE-CN',
-    'ruleset-format': 'binary',
-    'download-detour': ids[2],
-    invert: false
-  },
-  {
-    id: sampleID(),
-    type: 'rule_set_url',
-    payload:
-      'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs',
-    proxy: ids[0],
-    'ruleset-name': 'GEOLOCATION-!CN',
-    'ruleset-format': 'binary',
-    'download-detour': ids[2],
-    invert: false
-  },
+  // {
+  //   id: sampleID(),
+  //   type: 'rule_set_url',
+  //   payload: 'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs',
+  //   proxy: ids[2],
+  //   'ruleset-name': 'GEOIP-CN',
+  //   'ruleset-format': 'binary',
+  //   'download-detour': ids[2],
+  //   invert: false
+  // },
+  // {
+  //   id: sampleID(),
+  //   type: 'rule_set_url',
+  //   payload: 'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs',
+  //   proxy: ids[2],
+  //   'ruleset-name': 'GEOSITE-CN',
+  //   'ruleset-format': 'binary',
+  //   'download-detour': ids[2],
+  //   invert: false
+  // },
+  // {
+  //   id: sampleID(),
+  //   type: 'rule_set_url',
+  //   payload:
+  //     'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs',
+  //   proxy: ids[0],
+  //   'ruleset-name': 'GEOLOCATION-!CN',
+  //   'ruleset-format': 'binary',
+  //   'download-detour': ids[2],
+  //   invert: false
+  // },
   {
     id: sampleID(),
     type: 'final',
@@ -316,31 +316,31 @@ export const DnsRulesConfigDefaults = (ids: string[]): ProfileType['dnsRulesConf
     'download-detour': '',
     'client-subnet': ''
   },
-  {
-    id: sampleID(),
-    type: 'rule_set_url',
-    payload: 'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs',
-    server: 'local-dns',
-    'disable-cache': false,
-    invert: false,
-    'ruleset-name': 'GEOSITE-CN',
-    'ruleset-format': 'binary',
-    'download-detour': ids[2],
-    'client-subnet': ''
-  },
-  {
-    id: sampleID(),
-    type: 'rule_set_url',
-    payload:
-      'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs',
-    server: 'remote-dns',
-    'disable-cache': false,
-    invert: false,
-    'ruleset-name': 'GEOLOCATION-!CN',
-    'ruleset-format': 'binary',
-    'download-detour': ids[2],
-    'client-subnet': ''
-  }
+  // {
+  //   id: sampleID(),
+  //   type: 'rule_set_url',
+  //   payload: 'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs',
+  //   server: 'local-dns',
+  //   'disable-cache': false,
+  //   invert: false,
+  //   'ruleset-name': 'GEOSITE-CN',
+  //   'ruleset-format': 'binary',
+  //   'download-detour': ids[2],
+  //   'client-subnet': ''
+  // },
+  // {
+  //   id: sampleID(),
+  //   type: 'rule_set_url',
+  //   payload:
+  //     'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs',
+  //   server: 'remote-dns',
+  //   'disable-cache': false,
+  //   invert: false,
+  //   'ruleset-name': 'GEOLOCATION-!CN',
+  //   'ruleset-format': 'binary',
+  //   'download-detour': ids[2],
+  //   'client-subnet': ''
+  // }
 ]
 
 export const MixinConfigDefaults = (): ProfileType['mixinConfig'] => {
